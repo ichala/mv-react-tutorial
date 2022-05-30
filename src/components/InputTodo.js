@@ -1,48 +1,51 @@
-import React, { useState } from "react"
-import { FaPlusCircle } from "react-icons/fa";
+/* eslint-disable react/prop-types */
+import React, { useState } from 'react';
+import { FaPlusCircle } from 'react-icons/fa';
 
-const InputTodo = (props) => {
-  const [ErrorLog, setErrorLog] = useState('')
+const InputTodo = ({ props }) => {
+  const [ErrorLog, setErrorLog] = useState('');
   const [inputText, setInputText] = useState({
-    title: "",
-  })
+    title: '',
+  });
 
-  const onChange = e => {
+  const onChange = (e) => {
     setInputText({
       ...inputText,
       [e.target.name]: e.target.value,
-    })
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    if(inputText.title.trim()) {
-      props.addTodoProps(inputText.title);
-      setInputText({
-        title: "",
-      })
-    } else {
-      setErrorLog("Please write item");
-    } 
+    });
   };
 
-  return (<>
-    <form onSubmit={handleSubmit} className="form-container">
-      <input
-        type="text"
-        className="input-text"
-        placeholder="Add todo..."
-        value={inputText.title}
-        name="title"          
-        onChange={onChange}
-      />
-  
-      <button className="input-submit">
-        <FaPlusCircle style={{ color: "darkcyan", fontSize: "20px", marginTop: "2px" }}/>
-      </button>
-    </form>  
-      <p className="ErrorMessage" style={{ color: "red", fontSize: "20px", marginTop: "2px" }}>{ErrorLog}</p></>
-  )
-}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputText.title.trim()) {
+      props.addTodoProps(inputText.title);
+      setInputText({
+        title: '',
+      });
+    } else {
+      setErrorLog('Please write item');
+    }
+  };
 
-export default InputTodo
+  return (
+    <>
+      <form onSubmit={handleSubmit} className="form-container">
+        <input
+          type="text"
+          className="input-text"
+          placeholder="Add todo..."
+          value={inputText.title}
+          name="title"
+          onChange={onChange}
+        />
+
+        <button type="button" className="input-submit">
+          <FaPlusCircle style={{ color: 'darkcyan', fontSize: '20px', marginTop: '2px' }} />
+        </button>
+      </form>
+      <p className="ErrorMessage" style={{ color: 'red', fontSize: '20px', marginTop: '2px' }}>{ErrorLog}</p>
+    </>
+  );
+};
+
+export default InputTodo;

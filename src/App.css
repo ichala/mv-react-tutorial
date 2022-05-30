@@ -8,7 +8,6 @@
 }
 
 body {
-  
   line-height: 1.4;
   color: #444;
   background: #fff;
@@ -84,6 +83,7 @@ body {
   top: 40px;
   z-index: 10;
   cursor: pointer;
+
   /* addition */
   background: transparent;
   border: none;
