@@ -1,16 +1,13 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import { BrowserRouter as Router } from 'react-router-dom';
-import TodoContainer from './components/TodoContainer';
-import './App.css';
+// component files
+import TodoContainer from './functionBased/components/TodoContainer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <TodoContainer />
     </Router>
-  </React.StrictMode>,
-  document.getElementById('root'),
+  </React.StrictMode>, document.getElementById('root'),
 );
